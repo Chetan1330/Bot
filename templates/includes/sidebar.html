@@ -1,0 +1,92 @@
+
+
+    <div class="sidebar" data-color="blue">
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a rel="sponsored noopener noreferrer" 
+             href="#" class="simple-text logo-mini" style="width: 38px;">
+            
+          </a>
+          <a rel="sponsored noopener noreferrer" 
+             href="#" class="simple-text logo-normal">
+            
+          </a>
+        </div>
+
+        <ul class="nav">
+        {% if request.user.is_authenticated %}
+
+          <li class="{% if 'index' in segment %} active {% endif %}">
+            <a href="/">
+              <i class="tim-icons icon-chart-pie-36"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="{% if 'page-user' in segment %} active {% endif %}">
+            <a href="/page-user.html">
+              <i class="tim-icons icon-single-02"></i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li class="{% if 'botstatus' in segment %} active {% endif %}">
+            <a href="/botstatus.html">
+              <i class="tim-icons icon-laptop"></i>
+              <p>Bot Status</p>
+            </a>
+          </li>
+          <li class="{% if 'account_details' in segment %} active {% endif %}">
+            <a href="/account.html">
+              <i class="tim-icons icon-bank"></i>
+              <p>Payment Section</p>
+            </a>
+          </li>
+		  <li class="{% if 'upcoming' in segment %} active {% endif %}">
+            <a href="/upcoming.html">
+              <i class="tim-icons icon-bank"></i>
+              <p>Upcoming Investments</p>
+            </a>
+          </li>
+          <li class="{% if 'setting' in segment %} active {% endif %}">
+            <a href="/setting.html">
+              <i class="tim-icons icon-settings"></i>
+              <p>Bot Setting</p>
+            </a>
+          </li>
+          {% else %}
+          <li class="{% if 'startpage' in segment %} active {% endif %}">
+            <a href="/startpage.html"
+               >
+              <i class="fa-sharp fa-solid fa-house"></i>
+              <p>Home Page</p>
+            </a>
+          </li> 
+          
+          <li class="{% if 'login' in segment %} active {% endif %}">
+            <a href="/login.html" 
+               >
+              <i class="fa-solid fa-arrow-right-to-bracket"></i>
+              <p>Login/Register</p>
+            </a>
+          </li>
+
+          <li class="{% if 'contact' in segment %} active {% endif %}">
+            <a href="/contact.html" 
+               >
+              <i class="fa-solid fa-phone"></i>
+              <p>Contact us</p>
+            </a>
+          </li>   
+
+          <li class="{% if 'aboutus' in segment %} active {% endif %}">
+            <a href="/aboutus.html" 
+               >
+              <i class="fa-solid fa-circle-info"></i>
+              <p>About Us</p>
+            </a>
+          </li>   
+          {% endif %}
+                    
+        </ul>
+        
+      </div>
+    </div>

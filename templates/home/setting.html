@@ -1,0 +1,96 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Login {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-12">
+    <div class="card card-chart">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-sm-6 text-left">
+            <h5 class="card-category">Withdrawals</h5>
+            <h2 class="card-title">Quick Profit Withdrawals</h2>
+          </div>
+          <div class="col-sm-6">
+            <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+              <label class="btn btn-sm btn-primary btn-simple active" id="on">
+                <input type="radio" name="options" checked>
+                <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">ON</span>
+                <span class="d-block d-sm-none">
+                  <i class="tim-icons icon-single-02"></i>
+                </span>
+              </label>
+              <label class="btn btn-sm btn-primary btn-simple" id="off">
+                <input type="radio" class="d-none d-sm-none" name="options">
+                <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Off</span>
+                <span class="d-block d-sm-none">
+                  <i class="tim-icons icon-gift-2"></i>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="carddrop" style="margin-bottom: 12px;" class="col-sm-12">
+        <div class="btn-group btn-group-toggle float-left" data-toggle="buttons">
+          <label class="btn btn-sm btn-primary btn-simple active" id="qw0">
+            <input type="radio" name="options" checked>
+            <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">5%</span>
+            <span class="d-block d-sm-none">
+              <i class="tim-icons icon-single-02"></i>
+            </span>
+          </label>
+          <label class="btn btn-sm btn-primary btn-simple" id="qw1">
+            <input type="radio" class="d-none d-sm-none" name="options">
+            <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">10%</span>
+            <span class="d-block d-sm-none">
+              <i class="tim-icons icon-gift-2"></i>
+            </span>
+          </label>
+          <label class="btn btn-sm btn-primary btn-simple" id="qw2">
+            <input type="radio" class="d-none d-sm-none" name="options">
+            <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">15%</span>
+            <span class="d-block d-sm-none">
+              <i class="tim-icons icon-tap-02"></i>
+            </span>
+          </label>
+
+          <label class="btn btn-sm btn-primary btn-simple" id="qw3">
+            <input type="radio" class="d-none d-sm-none" name="options">
+            <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">20%</span>
+            <span class="d-block d-sm-none">
+              <i class="tim-icons icon-single-02"></i>
+            </span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script>
+  $("#off").click(function () {
+    // Code for #2
+    //document.getElementById('invest').innerHTML= 'last 1 year';
+    document.getElementById('carddrop').style.display = "none"
+  });
+
+  $("#on").click(function () {
+    // Code for #2
+    //document.getElementById('invest').innerHTML= 'last 1 year';
+    document.getElementById('carddrop').style.display = "block"
+  });
+</script>
+{% endblock javascripts %}

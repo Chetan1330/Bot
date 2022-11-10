@@ -1,0 +1,110 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Page User {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">Edit Profile</h5>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="row">
+            <div class="col-md-5 pr-md-1">
+              <div class="form-group">
+                <label>UserID (disabled)</label>
+                <input type="text" class="form-control" disabled="" value="{{ request.user.id }}">
+              </div>
+            </div>
+            <div class="col-md-3 px-md-1">
+              <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" value="{{ request.user.username }}">
+              </div>
+            </div>
+            <div class="col-md-4 pl-md-1">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" value="{{ request.user.email }}">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 pr-md-1">
+              <div class="form-group">
+                <label>SSN No</label>
+                <input type="number" class="form-control" placeholder="Company" value="018003829">
+              </div>
+            </div>
+            <div class="col-md-6 pl-md-1">
+              <div class="form-group">
+                <label>DOB</label>
+                <input type="date" placeholder="dd-mm-yyyy" value="" class="form-control" min="1990-01-01" max="2030-12-31" value="">
+              </div>
+            </div>
+          </div>
+          
+        </form>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-fill btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card card-user">
+      <div class="card-body">
+        <p class="card-text">
+          <div class="author">
+            <div class="block block-one"></div>
+            <div class="block block-two"></div>
+            <div class="block block-three"></div>
+            <div class="block block-four"></div>
+            <div style="margin-left: 75px;" class="w-50 p-3">
+              <img src="{% static 'assets/img/user.png' %}" alt="profile image"
+                  class="img-fluid rounded-circle">
+            </div>
+            <a href="javascript:void(0)">
+              <h5 class="title">
+                {{ request.user.username }}
+              </h5>
+            </a>
+            <p class="description">
+              {{ request.user.email }}
+            </p>
+          </div>
+        </p>
+        <div class="card-description">
+          This is Interactive Django Dashboard
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="button-container">
+          <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input style="margin-bottom: 5px; margin-left: 35px;" type="file" name="document">
+            <button type="submit">Upload file</button>
+          </form>
+          {% if url %}
+            <p>Uploaded file: <h5 href="{{ url }}">{{ url }}</h5></p>
+          {% endif %}
+          <button href="javascript:void(0)" class="btn btn-icon btn-round btn-facebook">
+            <i class="fab fa-facebook"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

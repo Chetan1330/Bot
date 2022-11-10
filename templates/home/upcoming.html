@@ -1,0 +1,116 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+
+{% block stylesheets %}
+  <style type="text/css">
+		#for_numrows {
+			padding: 10px;
+			float: left;
+		}
+		#for_filter_by {
+			padding: 0px;
+			float: right;
+		}
+		#pagesControllers {
+			display: block;
+			text-align: center;
+		}
+	</style>
+{% endblock stylesheets %}
+
+{% block content %}
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-chart">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-sm-6 text-left">
+                <h5 class="card-category">Investments</h5>
+                <h2 class="card-title">Upcoming Investments</h2>
+              </div>
+              <div class="col-sm-6">
+                <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                  <label class="btn btn-sm btn-primary btn-simple active" id="on">
+                    <input type="radio" name="options" checked>
+                    <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">ON</span>
+                    <span class="d-block d-sm-none">
+                      <i class="tim-icons icon-single-02"></i>
+                    </span>
+                  </label>
+                  <label class="btn btn-sm btn-primary btn-simple" id="off">
+                    <input type="radio" class="d-none d-sm-none" name="options">
+                    <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Off</span>
+                    <span class="d-block d-sm-none">
+                      <i class="tim-icons icon-gift-2"></i>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <span id="invest" class="text-primary">
+              <span id="notitxt" class="text-primary">Bitcoin 10% ---- @20OFF | Are you intrested in upcoming BTC Investments?</span>
+              <div id="yesnobtn" class="btn-group btn-group-toggle" style="margin-left: 5px; margin-bottom: 10px;" data-toggle="buttons">
+                <label class="btn btn-sm btn-primary btn-simple" id="yes">
+                  <input type="radio" class="d-none d-sm-none" name="options">
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Yes</span>
+                  <span class="d-block d-sm-none">
+                    <i class="tim-icons icon-single-02"></i>
+                  </span>
+                </label>
+                <label class="btn btn-sm btn-primary btn-simple" id="no">
+                  <input type="radio" class="d-none d-sm-none" name="options">
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">No</span>
+                  <span class="d-block d-sm-none">
+                    <i class="tim-icons icon-gift-2"></i>
+                  </span>
+                </label>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <script>
+    $(document).ready(function() {
+      
+
+        $("#off").click(function() {
+          // Code for #2
+          //document.getElementById('invest').innerHTML= 'last 1 year';
+          document.getElementById('invest').style.display = "none"
+        });
+
+        $("#on").click(function() {
+          // Code for #2
+          //document.getElementById('invest').innerHTML= 'last 1 year';
+          document.getElementById('invest').style.display = "block"
+        });
+
+
+        // Notification Btn
+        $("#yes").click(function() {
+          // Code for #2
+          //document.getElementById('invest').innerHTML= 'last 1 year';
+          document.getElementById('notitxt').style.fontSize = "18px"
+          document.getElementById('invest').style.marginBottom = "10px"
+          document.getElementById('notitxt').innerText = "Your Response is Submitted"
+          document.getElementById('yesnobtn').style.display = "none"
+        });
+
+
+        
+    })
+  </script>
+
+{% endblock javascripts %}
